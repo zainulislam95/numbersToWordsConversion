@@ -1,13 +1,19 @@
-﻿using TWord;
+﻿string isNegative = "";
+try
+{
+    Console.WriteLine("Enter a Number to convert to currency");
+    string number = Console.ReadLine();
+    number = Convert.ToDouble(number).ToString();
+     
+    if (number == "0")
+    {
+        Console.WriteLine("The number in currency fomat is \nZero Only");
+    }
 
-Console.WriteLine("Enter a Number to convert to currency:");
-string number = Console.ReadLine();
-var result = Convert.ToDecimal(number);
+    Console.ReadKey();
+}
+catch (Exception ex)
+{
 
-IAtWord at = new AtWordBuilder()
-               .SetLanguage(Language.English)
-               .SetCurrency(CurrencySymbol.USD)
-               .Build();
-
-var words = at.ToWords(result);
-Console.WriteLine(words); 
+    Console.WriteLine(ex.Message);
+}
